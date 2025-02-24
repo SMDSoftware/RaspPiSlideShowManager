@@ -4,7 +4,9 @@ A lightweight PHP-based image slideshow designed for Raspberry Pi, perfect for d
 
 Features
 ✅ Image Slideshow – Displays images from a specified folder.
+
 ✅ Automatic Image Deletion – Schedule images for removal on a specific date.
+
 ✅ Portrait & Landscape Support – Easily rotate the display for vertical or horizontal screens.
 ✅ Lightweight & Fast – Runs efficiently on Raspberry Pi Zero W 2.
 ✅ Easy Web-Based Management – Modify the slideshow via a simple web interface.
