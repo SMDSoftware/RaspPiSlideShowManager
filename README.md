@@ -1,0 +1,173 @@
+# Raspberry Pi Digital Signage & Slideshow  
+
+A lightweight PHP-based image slideshow designed for Raspberry Pi, perfect for **digital signage** or **photo displays**. The slideshow automatically cycles through images in a folder and allows scheduling automatic deletions for specific images.  
+
+## Features  
+✅ **Image Slideshow** – Displays images from a specified folder.  
+✅ **Automatic Image Deletion** – Schedule images for removal on a specific date.  
+✅ **Portrait & Landscape Support** – Option to rotate the display for vertical or horizontal screens.  
+✅ **Lightweight & Fast** – Runs efficiently on Raspberry Pi Zero W 2.  
+✅ **Easy Web-Based Management** – Modify the slideshow via a simple web interface. 
+
+
+
+// use the raspberry pi imaging app and choose the 32 bit legacy to get the older lite version, no desktop
+make sure ssh and your wifi is set before imaging in the pi imaging app
+install raspberry pi OS
+
+//use putty to ssh
+
+//default username and password
+pi
+raspberry
+
+//first change the password or it wont auto login DON'T use sudo for the password change
+passwd
+//remember password
+
+ 
+//then go here
+sudo raspi-config
+
+
+//change hostname - sytem options then hostname - hostname - you want to change the hostname now before making all the changes below
+//it should reboot by itself after this if not then do this
+sudo reboot now
+
+
+
+//update
+//https://www.raspberrypi.org/documentation/raspbian/updating.md
+//might take a while - a long time
+
+sudo apt update	
+
+
+
+
+
+sudo apt-get -y install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
+sudo apt-get -y install --no-install-recommends chromium-browser
+
+//edit this file and make changes below open putty in full screen first to see everything
+sudo nano /etc/xdg/openbox/autostart
+
+
+
+
+//add below to bottom of this file
+
+# Disable any form of screen saver / screen blanking / power management
+xset s off
+xset s noblank
+xset -dpms
+
+# Allow quitting the X server with CTRL-ATL-Backspace
+setxkbmap -option terminate:ctrl_alt_bksp
+
+# Start Chromium in kiosk mode
+
+
+sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/Default/Preferences
+sed -i 's/”exit_type”: “Crashed”/”exit_type”: “Normal”/' ~/.config/chromium/Default/Preferences
+
+
+
+chromium-browser --noerrors --disable-session-crashed-bubble --disable-infobars --start-fullscreen --incognito --kiosk 'http://localhost/slideshow.php'
+
+
+
+
+
+
+
+
+//then add this file. will not exist
+sudo nano .bash_profile
+
+//add line below - will be the only thing in the file
+
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx -- -nocursor
+
+
+
+
+
+
+
+
+//lets do the auto boot login again under System Options, boot options, dektop/cli, choose console autologin
+sudo raspi-config
+
+
+
+sudo apt install apache2 -y
+sudo systemctl start apache2
+sudo systemctl enable apache2
+
+sudo apt install php libapache2-mod-php -y
+php -v
+sudo systemctl restart apache2
+
+##################
+optional here
+sudo nano /var/www/html/info.php
+<?php
+phpinfo();
+?>
+
+test = http://<your-pi-ip>/info.php
+#####################
+
+
+sudo apt install vsftpd -y
+sudo nano /etc/vsftpd.conf
+
+// uncomment these
+local_enable=YES
+write_enable=YES
+chroot_local_user=YES
+
+// add these to bottom
+pasv_enable=YES
+pasv_min_port=40000
+pasv_max_port=50000
+
+
+
+sudo chown -R pi:pi /home/pi
+sudo chmod -R 755 /home/pi
+
+sudo systemctl restart vsftpd
+sudo systemctl enable vsftpd
+
+sudo nano /etc/apache2/mods-enabled/dir.conf
+	DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+sudo systemctl restart apache2
+
+sudo chmod -R 755 /var/www/html
+sudo usermod -aG www-data pi
+sudo chown -R pi:pi /var/www/html
+
+//upload files to pi now
+
+sudo chmod 777 /var/www/html/delay.txt
+sudo chmod 777 /var/www/html/deletion_schedule.txt
+sudo chmod 777 /var/www/html/location.txt
+sudo chmod 777 /var/www/html/resolution.txt
+sudo chmod 777 /var/www/html/transitions.txt
+
+sudo chmod -R 777 /var/www/html/slideshow
+
+sudo nano /etc/php/7.4/apache2/php.ini
+ctrl-w to find
+upload_max_filesize = 100M
+post_max_size = 100M
+
+
+sudo visudo
+// add next line to bottom of this file - this allow the page to reboot the pi from be interface
+www-data ALL=(ALL) NOPASSWD: /sbin/reboot
+
+
+// now connect to tv and reboot
