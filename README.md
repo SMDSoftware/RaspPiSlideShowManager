@@ -1,6 +1,6 @@
 # Dynamic PHP-Based Slideshow for Raspberry Pi
 
-A lightweight, PHP-based image slideshow running on Apache, designed for digital signage, commercial displays, or personal slideshows. Perfect for workplaces, retail, or home use, this slideshow automatically cycles through images with smooth fade, wipe, and other transitions. All settings are managed through a simple web interface, allowing complete control over each device remotely—no need to plug in a keyboard or mouse!
+A lightweight, PHP-based image slideshow running on Apache, designed for digital signage, commercial displays, or personal slideshows. Perfect for workplaces, retail, or home use, this slideshow automatically cycles through images with smooth fade, wipe, and other transitions. All settings are managed through a simple web interface over your local network, allowing complete control over each device remotely—no need to plug in a keyboard or mouse!
 
 🔥 Features
 
