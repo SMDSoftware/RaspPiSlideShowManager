@@ -22,7 +22,7 @@ A lightweight, PHP-based image slideshow running on Apache, designed for digital
 
 ✅ Image Size Protection – Prevents oversized images from slowing down performance.
 
-We use this at a hospital for employee recognition, upcoming events, and training classes. It’s great for offices, retail stores, restaurants, trade shows, and home digital photo frames.
+We use this at a hospital for employee recognition, upcoming events, and training classes on older pi 3b+ boards. It’s great for offices, retail stores, restaurants, trade shows, and home digital photo frames.
 
 💾 Setup Instructions
 
