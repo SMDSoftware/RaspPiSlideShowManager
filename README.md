@@ -1,26 +1,25 @@
-# Dynamic PHP-Based Slideshow for Raspberry Pi
+# Dynamic PHP-Based Slideshow/Signage for Raspberry Pi
 
-A lightweight, PHP-based image slideshow running on Apache, designed for digital signage, commercial displays, or personal slideshows. Perfect for workplaces, retail, or home use, this slideshow automatically cycles through images with smooth fade, wipe, and other transitions. All settings are managed through a simple password protected web interface over your local network, allowing complete control over each device remotely—no need to plug in a keyboard or mouse!
+A lightweight, PHP-based image slideshow running on Apache, designed for digital signage, commercial displays, or personal slideshows. Ideal for workplaces, retail stores, or home use, this system automatically cycles through images with smooth fade, wipe, and other transitions.
+
+All settings are managed through a password-protected web interface over your local network, allowing remote control of each device—no need for a keyboard or mouse!
 
 🔥 Features
-
-✅ Image Slideshow – Displays images from a specified folder with multiple transition effects.
+✅ Image Slideshow – Displays images from a specified folder with multiple transition effects, or set a static image.
 
 ✅ Customizable Delay – Set how long each image stays on screen via the web interface.
 
 ✅ Automatic Image Deletion – Schedule images for removal on a specific date.
 
-✅ Portrait & Landscape Support – Rotate the display for vertical or horizontal screens directly from the web interface.
+✅ Lightweight & Fast – Runs smoothly even on older Pi 3 and Raspberry Pi Zero W 2.
 
-✅ Lightweight & Fast – Runs smoothly even on a Raspberry Pi Zero W 2.
-
-✅ Easy Web-Based Management – All settings, including slideshow speed, transitions, and image scheduling, are controlled from an intuitive web interface.
+✅ Easy Web-Based Management – Configure slideshow speed, transitions, and image scheduling through an intuitive web interface.
 
 ✅ Headless Operation – No keyboard, mouse, or monitor required—just power it on and manage everything remotely.
 
-✅ Scalable Setup – Deploy multiple Raspberry Pi units, each configured separately through their own web interface.
+✅ Scalable Deployment – Set up multiple Raspberry Pi units, each configured independently through its own web interface.
 
-✅ Image Size Protection – Prevents oversized images from slowing down performance.
+✅ Performance Optimization – Prevents oversized images from slowing down playback.
 
 We use this at a hospital for employee recognition, upcoming events, and training classes on older pi 3b+ boards. It’s great for offices, retail stores, restaurants, trade shows, and home digital photo frames.
 
