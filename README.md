@@ -5,6 +5,7 @@ A lightweight, PHP-based image slideshow running on Apache, designed for digital
 All settings are managed through a password-protected web interface over your local network, allowing remote control of each device—no need for a keyboard or mouse!
 
 🔥 Features
+
 ✅ Image Slideshow – Displays images from a specified folder with multiple transition effects, or set a static image.
 
 ✅ Customizable Delay – Set how long each image stays on screen via the web interface.
