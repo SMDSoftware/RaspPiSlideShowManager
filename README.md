@@ -14,13 +14,14 @@ All settings are managed through a password-protected web interface over your lo
 
 ✅ Lightweight & Fast – Runs smoothly even on older Pi 3 and Raspberry Pi Zero W 2.
 
-✅ Easy Web-Based Management – Configure slideshow speed, transitions, and image scheduling through an intuitive web interface.
+✅ Easy Web-Based Management – Configure slideshow speed, transitions, display optional weather and time, change hostname, and image scheduling through an intuitive tabbed boostrap web interface.
 
 ✅ Headless Operation – No keyboard, mouse, or monitor required—just power it on and manage everything remotely.
 
 ✅ Scalable Deployment – Set up multiple Raspberry Pi units, each configured independently through its own web interface.
 
 ✅ Performance Optimization – Prevents oversized images from slowing down playback.
+
 
 We use this at a hospital for employee recognition, upcoming events, and training classes on older pi 3b+ boards. It’s great for offices, retail stores, restaurants, trade shows, and home digital photo frames.
 
